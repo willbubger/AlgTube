@@ -10,10 +10,10 @@ Users can:
 
 ## Tech Stack
 
-**Backend**: FastAPI (Python)
-**Database**: SQLite (via SQLModel)
-**Frontend**: HTML, CSS, JavaScript
-**Templating**: Jinja2
+**Backend**: FastAPI (Python)<br>
+**Database**: SQLite (via SQLModel)<br>
+**Frontend**: HTML, CSS, JavaScript<br>
+**Templating**: Jinja2<br>
 **Visualization**: Chart.js
 
 ## Dependencies
@@ -22,10 +22,10 @@ Install all required dependencies using the following command:
 pip install fastapi uvicorn sqlmodel jinja2 python-multipart
 
 ### Dependency Breakdown:
-**fastapi** – backend web framework
-**uvicorn** – server to run the app
-**sqlmodel** – database ORM for SQLite
-**jinja2** – HTML templating engine
+**fastapi** – backend web framework<br>
+**uvicorn** – server to run the app<br>
+**sqlmodel** – database ORM for SQLite<br>
+**jinja2** – HTML templating engine<br>
 **python-multipart** – required for handling form submissions
 
 ## Running the Application
@@ -65,9 +65,7 @@ Log in or create an account:
 
 Open an algorithm page
 - Enter a comma-separated list of numbers
-
-*Example:5,3,8,1,2*
-
+    - *Example:5,3,8,1,2*<br>
 - Click Submit
     - The algorithm will animate using the chart on the page
 
