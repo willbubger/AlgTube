@@ -1,0 +1,191 @@
+@font-face {
+    font-family: OpenSauce;
+    src: url(/static/fonts/OpenSauceOneVF.woff2);
+}
+
+/* General styling */
+body { 
+    background-color: #5170ff;
+    font-family: "OpenSauce";
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section {
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 200px;
+    padding: 25px;
+    margin: 25px;
+}
+
+.algDef {
+    color: black;
+    background-color: white;
+    max-width: 600px;
+}
+
+.code {
+    color: white;
+    font-family: monospace;
+    background-color: #5170ff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.algViz {
+    justify-content: center;
+    background-color: white;
+    color: black;
+    max-width: 100%;
+}
+
+.favorites {
+    display: flex;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+
+    width: 100%;
+    max-width: 350px;
+    padding: 30px;
+    margin: auto;
+}
+
+.panel h2 {
+    margin-top: 0;
+}
+
+footer {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nav Styling */
+nav {
+    overflow: hidden;
+    background-color: #333333;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding-right: 40px;
+}
+
+nav p {
+    margin: 0;
+  padding: 15px 65px;
+    float: left;
+    color: white;
+}
+
+nav ul li {
+  float: right;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+
+/* Login Styling */
+.panel form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 0px 20px;
+}
+
+form button {
+    color: white;
+    background-color: #5170ff;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+button {
+    font-weight: bold; 
+}
+    
+/* Home Styling */
+#homeHead {
+    font-size: 100px;
+    margin: 0;
+}
+
+#homeBlurb {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    padding: 30px;
+    margin: auto;
+}
+
+/* Favorites Styling*/
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}

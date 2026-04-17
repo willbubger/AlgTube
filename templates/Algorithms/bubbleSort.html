@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <!--Code tab script -->
+        <script src="/static/js/codeTab.js"></script>
+        <!--Chart.js scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="/static/js/algorithms/bubbleSort.js" defer></script>
+        <script src="/static/js/viz.js" defer></script>
+        <title>
+            AlgTube | Bubble Sort
+        </title>
+    </head>
+    <body>
+        <nav>
+            <p>AlgTube</p>
+            <ul>
+                <li><a href="/">PROFILE</a></li>
+                <li><a href="/favorites">FAVORITES</a></li>
+                <li><a href="/home">HOME</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h2>Bubble Sort</h2>
+            <form method="post" action="/favorite/bubbleSort">
+                <button type="submit">Favorite</button>
+            </form>
+        </header>
+        <div class="container">
+            <section class="algDef">
+                <h3>INFO</h3>
+                    <p>
+                    Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping 
+                    the adjacent elements if they are in the wrong order. This algorithm is not efficient 
+                    for large data sets as its average and worst-case time complexity are quite high.
+                </p>
+                <div>
+                    <button onclick="openCode('python')">Python</button>
+                    <button onclick="openCode('java')">Java</button>
+                    <button onclick="openCode('javascript')">JavaScript</button>
+                </div>
+                <div id="python" class="code">
+                    <h4>Python</h4>
+                    <pre>
+mylist = [-11, 6, 18, 2, -34, 32, 68]
+
+n = len(mylist)
+for i in range(n-1):
+for j in range(n-i-1):
+    if mylist[j] > mylist[j+1]:
+    mylist[j], mylist[j+1] = mylist[j+1], mylist[j]
+
+print(mylist)
+                    </pre>
+                </div>
+                <div id="java" class="code" style="display:none">
+                    <h4>Java</h4>
+                    <pre>
+void bubbleSort(int arr[])
+{
+    int n = arr.length;
+    
+    for (int i = 0; i < n - 1; i++)
+        for (int j = 0; j < n - i - 1; j++)
+            if (arr[j] > arr[j + 1]) {
+                
+                // swap temp and arr[i]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+}
+                    </pre>
+                </div>
+                <div id="javascript" class="code" style="display:none">
+                    <h4>JavaScript</h4>
+                    <pre>
+function bblSort(arr) {
+
+    for (var i = 0; i < arr.length; i++) {
+
+        // Last i elements are already in place  
+        for (var j = 0; j < (arr.length - i - 1); j++) {
+
+            // Checking if the item at present iteration 
+            // is greater than the next iteration
+            if (arr[j] > arr[j + 1]) {
+
+                // If the condition is true
+                // then swap them
+                var temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+            }
+        }
+    }
+}
+
+                    </pre>
+                </div>
+            </section>
+            <section class="algViz">
+                <label for="searchValues">Input list of numbers to sort (Comma seperated):</label><br>
+                <input type="text" id="searchValues" name="searchValues" value=""><br>
+                <button type="button" onclick="testInput(bubbleSort)">Submit</button>
+                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+            </section>
+        </div>
+        <footer>
+            <p>©Will Reed | CS270</p>
+        </footer>
+    </body>
+</html>

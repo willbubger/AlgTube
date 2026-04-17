@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <title>AlgTube | Favorites</title>
+    </head>
+    <body>
+        <nav>
+            <p>AlgTube</p>
+            <ul>
+                <li><a href="/">PROFILE</a></li>
+                <li><a href="/favorites">FAVORITES</a></li>
+                <li><a href="/home">HOME</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <h2>FAVORITES</h2>
+        </header>
+
+        <div class="container">
+            <section class="favorites">
+                <table>
+                    <tr>
+                        <th>NAME</th><th>CATEGORY</th><th>DIFFICULTY</th><th>DATE SAVED</th>
+                    </tr>
+
+                    {% if favorites %}
+                        {% for fav in favorites %}
+                        <tr>
+                            <td>
+                                <a href="/algorithms/{{ fav.alg_name }}">{{ fav.alg_name }}</a>
+                            </td>
+                            <td>—</td>
+                            <td>⭐️</td>
+                            <td>—</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4">No favorites yet.</td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </section>
+        </div>
+
+        <footer>
+            <p>©Will Reed | CS270</p>
+        </footer>
+    </body>
+</html>

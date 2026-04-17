@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <!--Code tab script -->
+        <script src="/static/js/codeTab.js"></script>
+        <!--Chart.js scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="/static/js/algorithms/heapSort.js" defer></script>
+        <script src="/static/js/viz.js" defer></script>
+        <title>
+            AlgTube | Bubble Sort
+        </title>
+    </head>
+    <body>
+        <nav>
+            <p>AlgTube</p>
+            <ul>
+                <li><a href="/">PROFILE</a></li>
+                <li><a href="/favorites">FAVORITES</a></li>
+                <li><a href="/home">HOME</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h2>Heap Sort</h2>
+            <form method="post" action="/favorite/heapSort">
+                <button type="submit">Favorite</button>
+            </form>
+        </header>
+        <div class="container">
+            <section class="algDef">
+                <h3>INFO</h3>
+                    <p>
+                        <!--Source: https://www.w3schools.com/dsa/dsa_algo_insertionsort.php-->
+                        Heap Sort is an efficient sorting technique based on the heap data structure.
+                        The heap is a nearly-complete binary tree where the parent node could either be 
+                        minimum or maximum. The heap with minimum root node is called min-heap and the root 
+                        node with maximum root node is called max-heap. 
+                    </p>
+                <div>
+                    <button onclick="openCode('python')">Python</button>
+                    <button onclick="openCode('java')">Java</button>
+                    <button onclick="openCode('javascript')">JavaScript</button>
+                </div>
+                <div id="python" class="code">
+                    <h4>Python</h4> <!--Source:https://www.programiz.com/dsa/heap-sort-->
+                    <pre>
+  def heapify(arr, n, i):
+      # Find largest among root and children
+      largest = i
+      l = 2 * i + 1
+      r = 2 * i + 2
+  
+      if l < n and arr[i] < arr[l]:
+          largest = l
+  
+      if r < n and arr[largest] < arr[r]:
+          largest = r
+  
+      # If root is not largest, swap with largest and continue heapifying
+      if largest != i:
+          arr[i], arr[largest] = arr[largest], arr[i]
+          heapify(arr, n, largest)
+  
+  
+  def heapSort(arr):
+      n = len(arr)
+  
+      # Build max heap
+      for i in range(n//2, -1, -1):
+          heapify(arr, n, i)
+  
+      for i in range(n-1, 0, -1):
+          # Swap
+          arr[i], arr[0] = arr[0], arr[i]
+  
+          # Heapify root element
+          heapify(arr, i, 0)
+  
+  
+  arr = [1, 12, 9, 5, 6, 10]
+  heapSort(arr)
+  n = len(arr)
+  print("Sorted array is")
+  for i in range(n):
+      print("%d " % arr[i], end='')
+  
+                    </pre>
+                </div>
+                <div id="java" class="code" style="display:none">
+                    <h4>Java</h4>
+                    <pre>
+  public class HeapSort {
+  
+    public void sort(int arr[]) {
+      int n = arr.length;
+  
+      // Build max heap
+      for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+      }
+  
+      // Heap sort
+      for (int i = n - 1; i >= 0; i--) {
+        int temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+  
+        // Heapify root element
+        heapify(arr, i, 0);
+      }
+    }
+  
+    void heapify(int arr[], int n, int i) {
+      // Find largest among root, left child and right child
+      int largest = i;
+      int l = 2 * i + 1;
+      int r = 2 * i + 2;
+  
+      if (l < n && arr[l] > arr[largest])
+        largest = l;
+  
+      if (r < n && arr[r] > arr[largest])
+        largest = r;
+  
+      // Swap and continue heapifying if root is not largest
+      if (largest != i) {
+        int swap = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = swap;
+  
+        heapify(arr, n, largest);
+      }
+    }
+  
+    // Function to print an array
+    static void printArray(int arr[]) {
+      int n = arr.length;
+      for (int i = 0; i < n; ++i)
+        System.out.print(arr[i] + " ");
+      System.out.println();
+    }
+  
+    // Driver code
+    public static void main(String args[]) {
+      int arr[] = { 1, 12, 9, 5, 6, 10 };
+  
+      HeapSort hs = new HeapSort();
+      hs.sort(arr);
+  
+      System.out.println("Sorted array is");
+      printArray(arr);
+    }
+  }
+                    </pre>
+                </div>
+                <div id="javascript" class="code" style="display:none">
+                    <h4>Javascript</h4>
+                    <pre>
+function heapify(arr, n, i) {
+
+    // Initialize largest as root
+    let largest = i;
+
+    // left index = 2*i + 1
+    let l = 2 * i + 1;
+
+    // right index = 2*i + 2
+    let r = 2 * i + 2;
+
+    // If left child is larger than root
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+
+    // If right child is larger than largest so far
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+
+    // If largest is not root
+    if (largest != i) {
+        [arr[i], arr[largest]] = [arr[largest], arr[i]];
+
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
+    }
+}
+
+// Main function to do heap sort
+function heapSort(arr) {
+    let n = arr.length;
+
+    // Build heap (rearrange vector)
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    // One by one extract an element from heap
+    for (let i = n - 1; i > 0; i--) {
+
+        // Move current root to end
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+
+        // Call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+                    </pre>
+                </div>
+            </section>
+            <section class="algViz">
+                <label for="searchValues">Input list of numbers to sort (Comma seperated):</label><br>
+                <input type="text" id="searchValues" name="searchValues" value=""><br>
+                <button type="button" onclick="testInput(heapSort)">Submit</button>
+                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+            </section>
+        </div>
+        <footer>
+            <p>©Will Reed | CS270</p>
+        </footer>
+    </body>
+</html>
