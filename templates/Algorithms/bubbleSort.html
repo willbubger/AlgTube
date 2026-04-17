@@ -25,9 +25,19 @@
         </nav>
         <header>
             <h2>Bubble Sort</h2>
-            <form method="post" action="/favorite/bubbleSort">
-                <button type="submit">Favorite</button>
-            </form>
+                <form method="post" action="/favorite/bubbleSort">
+                    <button 
+                        type="submit" 
+                        class="favorite-btn {% if is_favorited %}favorited{% endif %}"
+                        {% if is_favorited %}disabled{% endif %}
+                    >
+                        {% if is_favorited %}
+                            Favorited
+                        {% else %}
+                            Favorite
+                        {% endif %}
+                    </button>
+                </form>
         </header>
         <div class="container">
             <section class="algDef">
@@ -37,6 +47,7 @@
                     the adjacent elements if they are in the wrong order. This algorithm is not efficient 
                     for large data sets as its average and worst-case time complexity are quite high.
                 </p>
+                <h4><a href="https://www.youtube.com/watch?v=Dv4qLJcxus8">Video Tutorial</a></h4>
                 <div>
                     <button onclick="openCode('python')">Python</button>
                     <button onclick="openCode('java')">Java</button>

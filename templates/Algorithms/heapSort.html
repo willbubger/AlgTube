@@ -25,9 +25,19 @@
         </nav>
         <header>
             <h2>Heap Sort</h2>
-            <form method="post" action="/favorite/heapSort">
-                <button type="submit">Favorite</button>
-            </form>
+                <form method="post" action="/favorite/heapSort">
+                    <button 
+                        type="submit" 
+                        class="favorite-btn {% if is_favorited %}favorited{% endif %}"
+                        {% if is_favorited %}disabled{% endif %}
+                    >
+                        {% if is_favorited %}
+                            Favorited
+                        {% else %}
+                            Favorite
+                        {% endif %}
+                    </button>
+                </form>
         </header>
         <div class="container">
             <section class="algDef">
@@ -39,6 +49,7 @@
                         minimum or maximum. The heap with minimum root node is called min-heap and the root 
                         node with maximum root node is called max-heap. 
                     </p>
+                    <h4><a href="https://www.youtube.com/watch?v=2DmK_H7IdTo">Video Tutorial</a></h4>
                 <div>
                     <button onclick="openCode('python')">Python</button>
                     <button onclick="openCode('java')">Java</button>

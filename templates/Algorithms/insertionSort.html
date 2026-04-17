@@ -25,9 +25,19 @@
         </nav>
         <header>
             <h2>Insertion Sort</h2>
-            <form method="post" action="/favorite/insertionSort">
-                <button type="submit">Favorite</button>
-            </form>
+                <form method="post" action="/favorite/insertionSort">
+                    <button 
+                        type="submit" 
+                        class="favorite-btn {% if is_favorited %}favorited{% endif %}"
+                        {% if is_favorited %}disabled{% endif %}
+                    >
+                        {% if is_favorited %}
+                            Favorited
+                        {% else %}
+                            Favorite
+                        {% endif %}
+                    </button>
+                </form>
         </header>
         <div class="container">
             <section class="algDef">
@@ -38,6 +48,8 @@
                         to hold values that are not sorted yet. The algorithm takes one value at a time from the unsorted part of the array 
                         and puts it into the right place in the sorted part of the array, until the array is sorted.
                     </p>
+                    <h4><a href="https://www.youtube.com/watch?v=8mJ-OhcfpYg">Video Tutorial</a></h4>
+
                 <div>
                     <button onclick="openCode('python')">Python</button>
                     <button onclick="openCode('java')">Java</button>

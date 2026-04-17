@@ -24,23 +24,22 @@
             <section class="favorites">
                 <table>
                     <tr>
-                        <th>NAME</th><th>CATEGORY</th><th>DIFFICULTY</th><th>DATE SAVED</th>
+                        <th>FAVORITED ALGORITHMS</th>
                     </tr>
 
                     {% if favorites %}
                         {% for fav in favorites %}
                         <tr>
                             <td>
-                                <a href="/algorithms/{{ fav.alg_name }}">{{ fav.alg_name }}</a>
+                                <a href="/algorithms/{{ fav.alg_name }}">
+                                    {{ fav.alg_name }}
+                                </a>
                             </td>
-                            <td>—</td>
-                            <td>⭐️</td>
-                            <td>—</td>
                         </tr>
                         {% endfor %}
                     {% else %}
                         <tr>
-                            <td colspan="4">No favorites yet.</td>
+                            <td>No favorites yet.</td>
                         </tr>
                     {% endif %}
                 </table>

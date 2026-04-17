@@ -46,9 +46,27 @@ def home(req: Request):
 
 @app.get("/algorithms/{alg_name}")
 async def algorithm_page(req: Request, alg_name: str):
+    user_id = req.cookies.get("user_id")
+    is_favorited = False
+
+    if user_id:
+        with Session(engine) as session:
+            existing = session.exec(
+                select(Favorite).where(
+                    Favorite.user_id == int(user_id),
+                    Favorite.alg_name == alg_name
+                )
+            ).first()
+
+            if existing:
+                is_favorited = True
+
     return templates.TemplateResponse(
         f"algorithms/{alg_name}.html",
-        {"request": req}
+        {
+            "request": req,
+            "is_favorited": is_favorited
+        }
     )
 
 @app.get("/favorites")

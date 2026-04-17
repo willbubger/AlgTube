@@ -189,3 +189,27 @@ th, td {
   padding-left: 30px;
   padding-right: 40px;
 }
+
+.favorite-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin-left: 25px;
+}
+
+.favorite-btn:hover {
+    background-color: #888;
+}
+
+.favorite-btn.favorited {
+    background-color: #555;
+    cursor: default;
+}
+
+.favorite-btn.favorited:hover {
+    background-color: #555;
+}
